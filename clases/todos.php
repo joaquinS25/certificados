@@ -1,30 +1,19 @@
-```php
+
 <?php
 
 include '../conexion.php';
 
 $sql = "SELECT * FROM certificados ORDER BY id DESC";
-$resultado = mysqli_query($conn, $sql);
+
+$resultado = mysqli_query($conn,$sql);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
 <title>Todos los Certificados</title>
-
-<!-- FUENTE -->
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- LIBRERIAS -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -41,25 +30,20 @@ body{
 
     background:#f0f2f5;
 
-    font-family:'Montserrat',sans-serif;
+    font-family:'Times New Roman', serif;
 }
-
 /* BOTON */
 
 .acciones{
 
-    width:100%;
+    text-align:center;
 
-    display:flex;
-
-    justify-content:center;
-
-    margin:30px 0;
+    margin:25px;
 }
 
 .acciones button{
 
-    padding:15px 35px;
+    padding:15px 30px;
 
     background:#0b57d0;
 
@@ -67,49 +51,26 @@ body{
 
     border:none;
 
-    border-radius:12px;
+    border-radius:10px;
 
     font-size:18px;
 
-    font-weight:700;
+    font-weight:bold;
 
     cursor:pointer;
-
-    transition:.3s;
-}
-
-.acciones button:hover{
-
-    background:#0845a8;
 }
 
 /* GALERIA */
 
 .galeria{
 
-    width:100%;
-
-    padding:20px;
+    padding:40px;
 
     display:grid;
 
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(auto-fit,minmax(600px,1fr));
 
-    gap:30px;
-
-    justify-items:center;
-
-    align-items:start;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1500px){
-
-    .galeria{
-
-        grid-template-columns:1fr;
-    }
+    gap:40px;
 }
 
 /* CERTIFICADO */
@@ -118,33 +79,30 @@ body{
 
     position:relative;
 
-    width:680px;
-    height:480px;
+    width:100%;
 
-    background:
-    linear-gradient(
-        to bottom,
-        #ffffff,
-        #faf8f2
-    );
+    height:780px;
 
-    border:2px solid #222;
+    background:white;
+
+    border:4px solid #222;
+
+    box-shadow:0px 0px 15px rgba(0,0,0,.3);
 
     overflow:hidden;
 
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.15);
+    transform:scale(0.65);
+
+    transform-origin:top center;
+
+    margin-bottom:-300px;
+
+    transition:.3s;
 }
 
-/* RESPONSIVE MOVIL */
+.certificado:hover{
 
-@media(max-width:760px){
-
-    .certificado{
-
-        width:95%;
-        height:460px;
-    }
+    transform:scale(0.58);
 }
 
 /* BORDE INTERNO */
@@ -155,10 +113,10 @@ body{
 
     position:absolute;
 
-    top:10px;
-    left:10px;
-    right:10px;
-    bottom:10px;
+    top:12px;
+    left:12px;
+    right:12px;
+    bottom:12px;
 
     border:2px solid #555;
 }
@@ -169,11 +127,11 @@ body{
 
     position:absolute;
 
-    top:20px;
-    left:25px;
+    top:25px;
+    left:35px;
 
-    width:70px;
-    height:70px;
+    width:110px;
+    height:110px;
 
     object-fit:contain;
 }
@@ -182,11 +140,11 @@ body{
 
     position:absolute;
 
-    top:20px;
-    right:25px;
+    top:25px;
+    right:35px;
 
-    width:70px;
-    height:70px;
+    width:110px;
+    height:110px;
 
     object-fit:contain;
 }
@@ -197,32 +155,28 @@ body{
 
     position:absolute;
 
-    top:40px;
-
+    top:45px;
     width:100%;
 
     text-align:center;
 
-    font-size:32px;
+    font-size:50px;
+    font-weight:bold;
 
-    font-weight:800;
-
-    letter-spacing:1px;
+    letter-spacing:2px;
 }
 
 .titulo2{
 
     position:absolute;
 
-    top:82px;
-
+    top:105px;
     width:100%;
 
     text-align:center;
 
-    font-size:44px;
-
-    font-weight:800;
+    font-size:68px;
+    font-weight:bold;
 }
 
 /* TEXTO */
@@ -231,15 +185,12 @@ body{
 
     position:absolute;
 
-    top:140px;
-
+    top:235px;
     width:100%;
 
     text-align:center;
 
-    font-size:20px;
-
-    font-weight:500;
+    font-size:30px;
 }
 
 /* DECORACION */
@@ -248,13 +199,13 @@ body{
 
     position:absolute;
 
-    top:170px;
+    top:270px;
 
     width:100%;
 
     text-align:center;
 
-    font-size:26px;
+    font-size:30px;
 
     color:#c59d2a;
 }
@@ -265,40 +216,14 @@ body{
 
     position:absolute;
 
-    top:190px;
+    top:310px;
 
-    left:40px;
-
-    width:600px;
-
-    height:70px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    width:100%;
 
     text-align:center;
 
-    font-size:22px;
-
-    font-weight:800;
-
-    line-height:1.2;
-
-    word-break:break-word;
-
-    overflow:hidden;
-
-    padding:0 10px;
-}
-
-/* NOMBRES LARGOS */
-
-.nombreLargo{
-
-    font-size:18px;
+    font-size:42px;
+    font-weight:bold;
 }
 
 /* LINEA */
@@ -307,11 +232,11 @@ body{
 
     position:absolute;
 
-    top:250px;
+    top:400px;
 
-    left:80px;
+    left:70px;
 
-    width:520px;
+    width:700px;
 
     border-bottom:2px solid #c59d2a;
 }
@@ -322,52 +247,50 @@ body{
 
     position:absolute;
 
-    top:270px;
+    top:420px;
 
     width:100%;
 
     text-align:center;
 
-    font-size:20px;
+    font-size:30px;
 }
-
-/* LINEA CENTRAL */
-
 .descripcion2{
 
     position:absolute;
 
-    top:330px;
+    top:470px;
 
-    left:100px;
+    width:100%;
 
-    width:500px;
+    text-align:center;
 
-    border-bottom:2px solid black;
+    font-size:30px;
 }
-
-/* DATOS */
+/* CLUB */
 
 .club{
 
     position:absolute;
 
-    top:340px;
+    top:530px;
 
-    left:70px;
+    left:180px;
 
-    font-size:20px;
+    font-size:30px;
 }
+
+/* FECHA */
 
 .fecha{
 
     position:absolute;
 
-    top:340px;
+    top:530px;
 
-    right:70px;
+    right:180px;
 
-    font-size:20px;
+    font-size:30px;
 }
 
 /* FIRMAS */
@@ -375,27 +298,25 @@ body{
 .lineaFirma1{
 
     position:absolute;
+    
+    bottom:85px;
+    left:120px;
 
-    bottom:50px;
+    width:250px;
 
-    left:80px;
-
-    width:170px;
-
-    border-bottom:2px solid black;
+    border-bottom:3px solid black;
 }
 
 .lineaFirma2{
 
     position:absolute;
 
-    bottom:50px;
+    bottom:85px;
+    right:120px;
 
-    right:80px;
+    width:250px;
 
-    width:170px;
-
-    border-bottom:2px solid black;
+    border-bottom:3px solid black;
 }
 
 /* TEXTOS */
@@ -404,36 +325,31 @@ body{
 
     position:absolute;
 
-    bottom:18px;
+    bottom:45px;
+    left:150px;
 
-    left:85px;
-
-    width:160px;
+    width:190px;
 
     text-align:center;
 
-    font-size:17px;
-
-    font-weight:700;
+    font-size:22px;
+    font-weight:bold;
 }
 
 .instructor{
 
     position:absolute;
 
-    bottom:18px;
+    bottom:45px;
+    right:150px;
 
-    right:85px;
-
-    width:160px;
+    width:190px;
 
     text-align:center;
 
-    font-size:17px;
-
-    font-weight:700;
+    font-size:22px;
+    font-weight:bold;
 }
-
 /* IMPRESION */
 
 @media print{
@@ -452,26 +368,27 @@ body{
     .galeria{
 
         display:block;
+
+        padding:0;
     }
 
     .certificado{
 
-        margin:auto;
+        page-break-after:always;
 
-        margin-bottom:20px;
+        margin:0 auto 40px auto;
+
+        transform:scale(0.9);
+
+        box-shadow:none;
     }
 }
-
 </style>
 
 </head>
-
 <body>
 
 <?php include '../navbar.php'; ?>
-
-<!-- BOTON -->
-
 <div class="acciones">
 
     <button onclick="descargarPDF()">
@@ -479,26 +396,11 @@ body{
     </button>
 
 </div>
-
-<!-- GALERIA -->
-
 <div class="galeria">
 
 <?php while($fila = mysqli_fetch_assoc($resultado)){
 
-$fecha =
-date("d/m/Y",
-strtotime($fila['fecha']));
-
-$nombre =
-strtoupper($fila['nombre']);
-
-$claseNombre = "nombre";
-
-if(strlen($nombre) > 30){
-
-    $claseNombre .= " nombreLargo";
-}
+$fecha = date("d/m/Y", strtotime($fila['fecha']));
 
 ?>
 
@@ -531,15 +433,13 @@ if(strlen($nombre) > 30){
     <!-- DECORACION -->
 
     <div class="decoracion1">
-        ✦ ✦ ✦
+        ✦ ━━━━━ ✦
     </div>
 
     <!-- NOMBRE -->
 
-    <div class="<?php echo $claseNombre; ?>">
-
-        <?php echo $nombre; ?>
-
+    <div class="nombre">
+        <?php echo $fila['nombre']; ?>
     </div>
 
     <!-- LINEA -->
@@ -551,11 +451,9 @@ if(strlen($nombre) > 30){
     <div class="descripcion">
         Por haber cumplido satisfactoriamente la clase bíblica
     </div>
-
-    <!-- LINEA CENTRAL -->
-
-    <div class="descripcion2"></div>
-
+    <div class="descripcion2">
+            ______________________________________________
+    </div>
     <!-- DATOS -->
 
     <div class="club">
@@ -588,82 +486,55 @@ if(strlen($nombre) > 30){
 
 </div>
 
+</body>
+
 <script>
 
 async function descargarPDF(){
 
     const { jsPDF } = window.jspdf;
 
-    const pdf = new jsPDF({
+    const pdf = new jsPDF('p','mm','a4');
 
-        orientation:'landscape',
+    const certificados = document.querySelectorAll('.certificado');
 
-        unit:'mm',
-
-        format:'a4'
-    });
-
-    const certificados =
-    document.querySelectorAll('.certificado');
-
-    /* POSICIONES PDF */
+    /* POSICIONES 4 POR HOJA */
 
     const posiciones = [
 
-        {x:5, y:5},
-        {x:145, y:5},
+        {x:10,  y:10},
+        {x:105, y:10},
 
-        {x:5, y:104},
-        {x:145, y:104}
+        {x:10,  y:145},
+        {x:105, y:145}
     ];
 
     let contador = 0;
 
-    for(let i = 0;
-        i < certificados.length;
-        i++){
+    for(let i = 0; i < certificados.length; i++){
 
-        const canvas =
-        await html2canvas(
+        const canvas = await html2canvas(certificados[i],{
+            scale:2
+        });
 
-            certificados[i],
+        const imgData = canvas.toDataURL('image/png');
 
-            {
-                scale:2,
-
-                useCORS:true,
-
-                backgroundColor:"#ffffff"
-            }
-        );
-
-        const imgData =
-        canvas.toDataURL(
-        'image/jpeg',
-        1.0);
-
-        const pos =
-        posiciones[contador];
+        const pos = posiciones[contador];
 
         pdf.addImage(
-
             imgData,
-
-            'JPEG',
-
+            'PNG',
             pos.x,
             pos.y,
-
-            140,
-            99
+            90,
+            120
         );
 
         contador++;
 
         /* NUEVA PAGINA */
 
-        if(contador == 4 &&
-           i != certificados.length - 1){
+        if(contador == 4 && i != certificados.length - 1){
 
             pdf.addPage();
 
@@ -671,13 +542,14 @@ async function descargarPDF(){
         }
     }
 
-    pdf.save(
-    'certificados_clases_biblicas_2026.pdf'
-    );
+    pdf.save('certificados clases biblicas 2026.pdf');
 }
 
 </script>
 
-</body>
+
+
+
+
+
 </html>
-```
