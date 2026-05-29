@@ -1,30 +1,16 @@
 
-
-
-
-<<<<<<< HEAD
-```php
-=======
-
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 <?php
 
 include '../conexion.php';
 
 $sql = "SELECT * FROM certificados ORDER BY id DESC";
-<<<<<<< HEAD
 $resultado = mysqli_query($conn, $sql);
-=======
-
-$resultado = mysqli_query($conn,$sql);
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<<<<<<< HEAD
 
 <meta charset="UTF-8">
 
@@ -39,10 +25,6 @@ content="width=device-width, initial-scale=1.0">
 
 <!-- LIBRERIAS -->
 
-=======
-<meta charset="UTF-8">
-<title>Todos los Certificados</title>
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -59,19 +41,13 @@ body{
 
     background:#f0f2f5;
 
-<<<<<<< HEAD
     font-family:'Montserrat',sans-serif;
 }
 
-=======
-    font-family:'Times New Roman', serif;
-}
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 /* BOTON */
 
 .acciones{
 
-<<<<<<< HEAD
     width:100%;
 
     display:flex;
@@ -79,20 +55,11 @@ body{
     justify-content:center;
 
     margin:30px 0;
-=======
-    text-align:center;
-
-    margin:25px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 .acciones button{
 
-<<<<<<< HEAD
     padding:15px 35px;
-=======
-    padding:15px 30px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
     background:#0b57d0;
 
@@ -100,7 +67,6 @@ body{
 
     border:none;
 
-<<<<<<< HEAD
     border-radius:12px;
 
     font-size:18px;
@@ -115,22 +81,12 @@ body{
 .acciones button:hover{
 
     background:#0845a8;
-=======
-    border-radius:10px;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* GALERIA */
 
 .galeria{
 
-<<<<<<< HEAD
     width:100%;
 
     padding:20px;
@@ -154,15 +110,6 @@ body{
 
         grid-template-columns:1fr;
     }
-=======
-    padding:40px;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(600px,1fr));
-
-    gap:40px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* CERTIFICADO */
@@ -171,7 +118,6 @@ body{
 
     position:relative;
 
-<<<<<<< HEAD
     width:680px;
     height:480px;
 
@@ -199,32 +145,6 @@ body{
         width:95%;
         height:460px;
     }
-=======
-    width:100%;
-
-    height:780px;
-
-    background:white;
-
-    border:4px solid #222;
-
-    box-shadow:0px 0px 15px rgba(0,0,0,.3);
-
-    overflow:hidden;
-
-    transform:scale(0.65);
-
-    transform-origin:top center;
-
-    margin-bottom:-300px;
-
-    transition:.3s;
-}
-
-.certificado:hover{
-
-    transform:scale(0.58);
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* BORDE INTERNO */
@@ -235,17 +155,10 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
     top:10px;
     left:10px;
     right:10px;
     bottom:10px;
-=======
-    top:12px;
-    left:12px;
-    right:12px;
-    bottom:12px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
     border:2px solid #555;
 }
@@ -256,19 +169,11 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
     top:20px;
     left:25px;
 
     width:70px;
     height:70px;
-=======
-    top:25px;
-    left:35px;
-
-    width:110px;
-    height:110px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
     object-fit:contain;
 }
@@ -277,19 +182,11 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
     top:20px;
     right:25px;
 
     width:70px;
     height:70px;
-=======
-    top:25px;
-    right:35px;
-
-    width:110px;
-    height:110px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
     object-fit:contain;
 }
@@ -300,52 +197,32 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
     top:40px;
 
-=======
-    top:45px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     width:100%;
 
     text-align:center;
 
-<<<<<<< HEAD
     font-size:32px;
 
     font-weight:800;
 
     letter-spacing:1px;
-=======
-    font-size:50px;
-    font-weight:bold;
-
-    letter-spacing:2px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 .titulo2{
 
     position:absolute;
 
-<<<<<<< HEAD
     top:82px;
 
-=======
-    top:105px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     width:100%;
 
     text-align:center;
 
-<<<<<<< HEAD
-    font-size:44px;
+    font-size:54px;
 
     font-weight:800;
-=======
-    font-size:68px;
-    font-weight:bold;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* TEXTO */
@@ -354,23 +231,15 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:140px;
+    top:180px;
 
-=======
-    top:235px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     width:100%;
 
     text-align:center;
 
-<<<<<<< HEAD
     font-size:20px;
 
     font-weight:500;
-=======
-    font-size:30px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* DECORACION */
@@ -379,21 +248,13 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:170px;
-=======
-    top:270px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
+    top:215px;
 
     width:100%;
 
     text-align:center;
 
-<<<<<<< HEAD
     font-size:26px;
-=======
-    font-size:30px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
     color:#c59d2a;
 }
@@ -404,8 +265,7 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:190px;
+    top:245px;
 
     left:40px;
 
@@ -439,16 +299,6 @@ body{
 .nombreLargo{
 
     font-size:18px;
-=======
-    top:310px;
-
-    width:100%;
-
-    text-align:center;
-
-    font-size:42px;
-    font-weight:bold;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* LINEA */
@@ -457,19 +307,11 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:250px;
+    top:315px;
 
     left:80px;
 
     width:520px;
-=======
-    top:400px;
-
-    left:70px;
-
-    width:700px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
     border-bottom:2px solid #c59d2a;
 }
@@ -480,93 +322,52 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:270px;
-=======
-    top:420px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
+    top:335px;
 
     width:100%;
 
     text-align:center;
 
-<<<<<<< HEAD
     font-size:20px;
 }
 
 /* LINEA CENTRAL */
 
-=======
-    font-size:30px;
-}
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 .descripcion2{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:330px;
+    top:375px;
 
-    left:100px;
+    left:200px;
 
-    width:500px;
+    width:280px;
 
     border-bottom:2px solid black;
 }
 
 /* DATOS */
-=======
-    top:470px;
-
-    width:100%;
-
-    text-align:center;
-
-    font-size:30px;
-}
-/* CLUB */
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
 .club{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:340px;
+    top:405px;
 
     left:70px;
 
     font-size:20px;
 }
 
-=======
-    top:530px;
-
-    left:180px;
-
-    font-size:30px;
-}
-
-/* FECHA */
-
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 .fecha{
 
     position:absolute;
 
-<<<<<<< HEAD
-    top:340px;
+    top:405px;
 
     right:70px;
 
     font-size:20px;
-=======
-    top:530px;
-
-    right:180px;
-
-    font-size:30px;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* FIRMAS */
@@ -574,7 +375,6 @@ body{
 .lineaFirma1{
 
     position:absolute;
-<<<<<<< HEAD
 
     bottom:50px;
 
@@ -583,22 +383,12 @@ body{
     width:170px;
 
     border-bottom:2px solid black;
-=======
-    
-    bottom:85px;
-    left:120px;
-
-    width:250px;
-
-    border-bottom:3px solid black;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 .lineaFirma2{
 
     position:absolute;
 
-<<<<<<< HEAD
     bottom:50px;
 
     right:80px;
@@ -606,14 +396,6 @@ body{
     width:170px;
 
     border-bottom:2px solid black;
-=======
-    bottom:85px;
-    right:120px;
-
-    width:250px;
-
-    border-bottom:3px solid black;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 /* TEXTOS */
@@ -622,7 +404,6 @@ body{
 
     position:absolute;
 
-<<<<<<< HEAD
     bottom:18px;
 
     left:85px;
@@ -634,24 +415,12 @@ body{
     font-size:17px;
 
     font-weight:700;
-=======
-    bottom:45px;
-    left:150px;
-
-    width:190px;
-
-    text-align:center;
-
-    font-size:22px;
-    font-weight:bold;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 .instructor{
 
     position:absolute;
 
-<<<<<<< HEAD
     bottom:18px;
 
     right:85px;
@@ -665,18 +434,6 @@ body{
     font-weight:700;
 }
 
-=======
-    bottom:45px;
-    right:150px;
-
-    width:190px;
-
-    text-align:center;
-
-    font-size:22px;
-    font-weight:bold;
-}
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 /* IMPRESION */
 
 @media print{
@@ -695,16 +452,10 @@ body{
     .galeria{
 
         display:block;
-<<<<<<< HEAD
-=======
-
-        padding:0;
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     }
 
     .certificado{
 
-<<<<<<< HEAD
         margin:auto;
 
         margin-bottom:20px;
@@ -721,23 +472,6 @@ body{
 
 <!-- BOTON -->
 
-=======
-        page-break-after:always;
-
-        margin:0 auto 40px auto;
-
-        transform:scale(0.9);
-
-        box-shadow:none;
-    }
-}
-</style>
-
-</head>
-<body>
-
-<?php include '../navbar.php'; ?>
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 <div class="acciones">
 
     <button onclick="descargarPDF()">
@@ -745,17 +479,13 @@ body{
     </button>
 
 </div>
-<<<<<<< HEAD
 
 <!-- GALERIA -->
 
-=======
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 <div class="galeria">
 
 <?php while($fila = mysqli_fetch_assoc($resultado)){
 
-<<<<<<< HEAD
 $fecha =
 date("d/m/Y",
 strtotime($fila['fecha']));
@@ -769,9 +499,6 @@ if(strlen($nombre) > 30){
 
     $claseNombre .= " nombreLargo";
 }
-=======
-$fecha = date("d/m/Y", strtotime($fila['fecha']));
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
 ?>
 
@@ -804,24 +531,15 @@ $fecha = date("d/m/Y", strtotime($fila['fecha']));
     <!-- DECORACION -->
 
     <div class="decoracion1">
-<<<<<<< HEAD
         ✦ ✦ ✦
-=======
-        ✦ ━━━━━ ✦
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     </div>
 
     <!-- NOMBRE -->
 
-<<<<<<< HEAD
     <div class="<?php echo $claseNombre; ?>">
 
         <?php echo $nombre; ?>
 
-=======
-    <div class="nombre">
-        <?php echo $fila['nombre']; ?>
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     </div>
 
     <!-- LINEA -->
@@ -833,17 +551,11 @@ $fecha = date("d/m/Y", strtotime($fila['fecha']));
     <div class="descripcion">
         Por haber cumplido satisfactoriamente la clase bíblica
     </div>
-<<<<<<< HEAD
 
     <!-- LINEA CENTRAL -->
 
     <div class="descripcion2"></div>
 
-=======
-    <div class="descripcion2">
-            ______________________________________________
-    </div>
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     <!-- DATOS -->
 
     <div class="club">
@@ -876,18 +588,12 @@ $fecha = date("d/m/Y", strtotime($fila['fecha']));
 
 </div>
 
-<<<<<<< HEAD
-=======
-</body>
-
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 <script>
 
 async function descargarPDF(){
 
     const { jsPDF } = window.jspdf;
 
-<<<<<<< HEAD
     const pdf = new jsPDF({
 
         orientation:'landscape',
@@ -909,26 +615,10 @@ async function descargarPDF(){
 
         {x:5, y:104},
         {x:145, y:104}
-=======
-    const pdf = new jsPDF('p','mm','a4');
-
-    const certificados = document.querySelectorAll('.certificado');
-
-    /* POSICIONES 4 POR HOJA */
-
-    const posiciones = [
-
-        {x:10,  y:10},
-        {x:105, y:10},
-
-        {x:10,  y:145},
-        {x:105, y:145}
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
     ];
 
     let contador = 0;
 
-<<<<<<< HEAD
     for(let i = 0;
         i < certificados.length;
         i++){
@@ -966,37 +656,14 @@ async function descargarPDF(){
 
             140,
             99
-=======
-    for(let i = 0; i < certificados.length; i++){
-
-        const canvas = await html2canvas(certificados[i],{
-            scale:2
-        });
-
-        const imgData = canvas.toDataURL('image/png');
-
-        const pos = posiciones[contador];
-
-        pdf.addImage(
-            imgData,
-            'PNG',
-            pos.x,
-            pos.y,
-            90,
-            120
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
         );
 
         contador++;
 
         /* NUEVA PAGINA */
 
-<<<<<<< HEAD
         if(contador == 4 &&
            i != certificados.length - 1){
-=======
-        if(contador == 4 && i != certificados.length - 1){
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 
             pdf.addPage();
 
@@ -1004,28 +671,12 @@ async function descargarPDF(){
         }
     }
 
-<<<<<<< HEAD
     pdf.save(
     'certificados_clases_biblicas_2026.pdf'
     );
-=======
-    pdf.save('certificados clases biblicas 2026.pdf');
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
 }
 
 </script>
 
-<<<<<<< HEAD
 </body>
 </html>
-```
-=======
-
-
-
-
-
-</html>
-
->>>>>>> 3ecdbc9f89b731bdec6da33197e97055188b6b1d
-
