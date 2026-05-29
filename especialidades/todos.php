@@ -64,13 +64,27 @@ body{
 
 .galeria{
 
-    padding:40px;
+    width:100%;
+
+    padding:20px;
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(600px,1fr));
+    grid-template-columns:repeat(2, 1fr);
 
-    gap:40px;
+    gap:30px;
+
+    justify-items:center;
+
+    align-items:start;
+}
+
+@media(max-width:1500px){
+
+    .galeria{
+
+        grid-template-columns:1fr;
+    }
 }
 
 /* CERTIFICADO */
@@ -79,7 +93,7 @@ body{
 
     position:relative;
 
-    width:100%;
+    width:1100px;
 
     height:780px;
 
@@ -95,7 +109,7 @@ body{
 
     transform-origin:top center;
 
-    margin-bottom:-300px;
+    margin-bottom:-230px;
 
     transition:.3s;
 }
@@ -185,7 +199,7 @@ body{
 
     position:absolute;
 
-    top:235px;
+    top:200px;
     width:100%;
 
     text-align:center;
@@ -199,7 +213,7 @@ body{
 
     position:absolute;
 
-    top:270px;
+    top:235px;
 
     width:100%;
 
@@ -216,7 +230,7 @@ body{
 
     position:absolute;
 
-    top:310px;
+    top:280px;
 
     width:100%;
 
@@ -232,11 +246,11 @@ body{
 
     position:absolute;
 
-    top:400px;
+    top:340px;
 
-    left:70px;
+    left:40px;
 
-    width:700px;
+    width:1000px;
 
     border-bottom:2px solid #c59d2a;
 }
@@ -247,13 +261,24 @@ body{
 
     position:absolute;
 
-    top:420px;
+    top:350px;
 
     width:100%;
 
     text-align:center;
 
     font-size:30px;
+}
+.especialidad{
+    position:absolute;
+
+    top:340px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:50px;
 }
 .descripcion2{
 
@@ -273,7 +298,7 @@ body{
 
     position:absolute;
 
-    top:530px;
+    top:480px;
 
     left:180px;
 
@@ -286,7 +311,7 @@ body{
 
     position:absolute;
 
-    top:530px;
+    top:480px;
 
     right:180px;
 
@@ -452,11 +477,11 @@ $fecha = date("d/m/Y", strtotime($fila['fecha']));
 
         Por haber completado satisfactoriamente
         la especialidad de
-
-        <br>
+    </div>
+    <div class="especialidad">
+         <br>
 
         <b><?php echo $fila['especialidad']; ?></b>
-
     </div>
     
     <!-- DATOS -->
@@ -499,47 +524,76 @@ async function descargarPDF(){
 
     const { jsPDF } = window.jspdf;
 
-    const pdf = new jsPDF('p','mm','a4');
+    const pdf = new jsPDF({
 
-    const certificados = document.querySelectorAll('.certificado');
+        orientation:'landscape',
 
-    /* POSICIONES 4 POR HOJA */
+        unit:'mm',
+
+        format:'a4'
+    });
+
+    const certificados =
+    document.querySelectorAll('.certificado');
+
+    /* POSICIONES PDF */
 
     const posiciones = [
 
-        {x:10,  y:10},
-        {x:105, y:10},
+        {x:5, y:5},
+        {x:145, y:5},
 
-        {x:10,  y:145},
-        {x:105, y:145}
+        {x:5, y:104},
+        {x:145, y:104}
     ];
 
     let contador = 0;
 
-    for(let i = 0; i < certificados.length; i++){
+    for(let i = 0;
+        i < certificados.length;
+        i++){
 
-        const canvas = await html2canvas(certificados[i],{
-            scale:2
-        });
+        const canvas =
+        await html2canvas(
 
-        const imgData = canvas.toDataURL('image/png');
+            certificados[i],
 
-        const pos = posiciones[contador];
+            {
+                scale:2,
+
+                useCORS:true,
+
+                backgroundColor:"#ffffff"
+            }
+        );
+
+        const imgData =
+        canvas.toDataURL(
+        'image/jpeg',
+        1.0);
+
+        const pos =
+        posiciones[contador];
 
         pdf.addImage(
+
             imgData,
-            'PNG',
+
+            'JPEG',
+
             pos.x,
             pos.y,
-            90,
-            120
+
+            140,
+            99
         );
 
         contador++;
 
         /* NUEVA PAGINA */
 
-        if(contador == 4 && i != certificados.length - 1){
+        if(contador == 4 &&
+           i != certificados.length - 1){
 
             pdf.addPage();
 
@@ -547,7 +601,9 @@ async function descargarPDF(){
         }
     }
 
-    pdf.save('certificados de especialidades 2026.pdf');
+    pdf.save(
+    'certificados_especialidades_2026.pdf'
+    );
 }
 
 </script>
