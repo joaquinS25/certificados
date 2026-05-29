@@ -2,6 +2,7 @@
 <?php
 include '../conexion.php';
 $nombre = strtoupper($_POST['nombre']);
+$clase_biblica = strtoupper($_POST['clase_biblica']);
 /* FECHA MYSQL */
 
 $fecha_mysql = $_POST['fecha'];
@@ -33,11 +34,12 @@ move_uploaded_file($tmpConquistadores, 'logos/'.$logoConquistadores);
 /* GUARDAR EN MYSQL */
 
 $sql = "INSERT INTO certificados
-(nombre,fecha,logo_club,logo_conquistadores)
+(nombre,clase_biblica,fecha,logo_club,logo_conquistadores)
 
 VALUES
 
 ('$nombre',
+'$clase_biblica',
 '$fecha_mysql',
 '$logoClub',
 '$logoConquistadores')";
@@ -246,6 +248,20 @@ body{
 
     font-size:30px;
 }
+.descripcion2{
+
+    position:absolute;
+
+    top:470px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:32px;
+
+    font-weight:bold;
+}
 
 /* CLUB */
 
@@ -253,7 +269,7 @@ body{
 
     position:absolute;
 
-    top:460px; /* SUBIDO */
+    top:510px; /* SUBIDO */
 
     left:180px;
 
@@ -266,7 +282,7 @@ body{
 
     position:absolute;
 
-    top:460px; /* SUBIDO */
+    top:510px; /* SUBIDO */
 
     right:180px;
 
@@ -382,15 +398,7 @@ button{
 <!-- NAVBAR -->
 
 <?php include '../navbar.php'; ?>
-<!-- BOTON -->
 
-<div class="imprimir">
-
-    <button onclick="window.print()">
-        Imprimir / Guardar PDF
-    </button>
-
-</div>
 
 <!-- CONTENEDOR -->
 
@@ -440,8 +448,12 @@ button{
 
         <!-- DESCRIPCION -->
 
-        <div class="descripcion">
-            Por haber cumplido satisfactoriamente la clase bíblica
+       <div class="descripcion">
+        Por haber cumplido satisfactoriamente la clase bíblica
+        </div>
+
+        <div class="descripcion2">
+            <?php echo $clase_biblica; ?>
         </div>
 
         <!-- DATOS -->

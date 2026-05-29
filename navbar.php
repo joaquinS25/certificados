@@ -37,8 +37,40 @@
     display:flex;
 
     gap:20px;
-}
 
+    flex-wrap:wrap;
+}
+/* RESPONSIVE NAVBAR */
+
+@media(max-width:1000px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+        padding:15px 20px;
+    }
+
+    .menu{
+
+        width:100%;
+
+        flex-wrap:wrap;
+
+        gap:10px;
+    }
+
+    .menu a{
+
+        font-size:16px;
+
+        padding:8px 12px;
+    }
+}
 .menu a{
 
     text-decoration:none;

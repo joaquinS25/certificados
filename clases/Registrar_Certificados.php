@@ -174,7 +174,31 @@ button:hover{
     }
 
 }
+select{
 
+    width:100%;
+
+    padding:14px;
+
+    border:2px solid #dcdcdc;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    background:white;
+}
+
+select:focus{
+
+    border-color:#0b57d0;
+
+    outline:none;
+
+    box-shadow:0px 0px 10px rgba(11,87,208,.2);
+}
 </style>
 
 </head>
@@ -256,7 +280,29 @@ button:hover{
                        required>
 
             </div>
+            <!-- CLASE BIBLICA -->
 
+            <div class="grupo">
+
+                <label>Clase Bíblica</label>
+
+                <select name="clase_biblica" required>
+
+                    <option value="">
+                        Seleccione una clase bíblica
+                    </option>
+
+                    <option value="Joyas de la Eternidad">
+                        JOYAS DE LA ETERNIDAD
+                    </option>
+
+                    <option value="Sumergidos en la Palabra">
+                        SUMERGIDOS EN LA PALABRA
+                    </option>
+
+                </select>
+
+            </div>
             <!-- BOTON -->
 
             <button type="submit">

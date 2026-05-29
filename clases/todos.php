@@ -337,13 +337,19 @@ body{
 
     position:absolute;
 
-    top:315px;
+    top:290px;
 
-    left:100px;
+    left:90px;
 
-    width:500px;
+    width:520px;
 
-    border-bottom:2px solid black;
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#000;
 }
 
 /* DATOS */
@@ -554,7 +560,11 @@ if(strlen($nombre) > 30){
 
     <!-- LINEA CENTRAL -->
 
-    <div class="descripcion2"></div>
+    <div class="descripcion2">
+
+        <?php echo $fila['clase_biblica']; ?>
+
+    </div>
 
     <!-- DATOS -->
 

@@ -190,14 +190,29 @@ body{
 
     font-size:30px;
 }
+/* NOMBRE CLASE BIBLICA */
 
+.descripcion2{
+
+    position:absolute;
+
+    top:475px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:32px;
+
+    font-weight:bold;
+}
 /* CLUB */
 
 .club{
 
     position:absolute;
 
-    top:460px; /* SUBIDO */
+    top:530px; /* SUBIDO */
 
     left:180px;
 
@@ -210,7 +225,7 @@ body{
 
     position:absolute;
 
-    top:460px; /* SUBIDO */
+    top:530px; /* SUBIDO */
 
     right:180px;
 
@@ -313,7 +328,9 @@ body{
     <div class="descripcion">
         Por haber cumplido satisfactoriamente la clase bíblica
     </div>
-
+     <div class="descripcion2">
+        <?php echo $fila['clase_biblica']; ?>
+    </div>       
     <div class="club">
         <b>Club:</b> Mikel
     </div>

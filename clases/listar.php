@@ -1,4 +1,3 @@
-```php
 <?php
 
 include '../conexion.php';
@@ -134,6 +133,7 @@ img{
             <th>ID</th>
             <th>Nombre</th>
             <th>Fecha</th>
+            <th>Clase Bíblica</th>
             <th>Logo Club</th>
             <th>Logo Conquistadores</th>
             <th>Registro</th>
@@ -150,13 +150,13 @@ img{
             <td><?php echo $fila['nombre']; ?></td>
 
             <td><?php echo $fila['fecha']; ?></td>
-
+            <td><?php echo $fila['clase_biblica']; ?></td>
             <td>
-                <img src="logos/<?php echo $fila['logo_club']; ?>">
+                <img src="../logos/<?php echo $fila['logo_club']; ?>">
             </td>
 
             <td>
-                <img src="logos/<?php echo $fila['logo_conquistadores']; ?>">
+                <img src="../logos/<?php echo $fila['logo_conquistadores']; ?>">
             </td>
 
             <td><?php echo $fila['fecha_registro']; ?></td>
@@ -180,4 +180,3 @@ img{
 
 </body>
 </html>
-```
