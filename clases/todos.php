@@ -101,7 +101,24 @@ body{
 
     align-items:start;
 }
+.contenedorCertificado{
 
+    position:relative;
+}
+.checkCertificado{
+
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    width:25px;
+    height:25px;
+
+    z-index:999;
+
+    cursor:pointer;
+}
 /* RESPONSIVE */
 
 @media(max-width:1500px){
@@ -483,7 +500,9 @@ body{
     <button onclick="descargarPDF()">
         Descargar PDF
     </button>
-
+    <button onclick="descargarSeleccionados()">
+        Descargar Seleccionados
+    </button>
 </div>
 
 <!-- GALERIA -->
@@ -508,7 +527,12 @@ if(strlen($nombre) > 30){
 
 ?>
 
-<div class="certificado">
+<div class="contenedorCertificado">
+
+    <input type="checkbox"
+           class="checkCertificado">
+
+    <div class="certificado">
 
     <!-- LOGOS -->
 
@@ -590,6 +614,8 @@ if(strlen($nombre) > 30){
 
     <div class="instructor">
         INSTRUCTOR
+    </div>
+
     </div>
 
 </div>
@@ -685,7 +711,107 @@ async function descargarPDF(){
     'certificados_clases_biblicas_2026.pdf'
     );
 }
+async function descargarSeleccionados(){
 
+    const { jsPDF } = window.jspdf;
+
+    const pdf = new jsPDF({
+
+        orientation:'landscape',
+
+        unit:'mm',
+
+        format:'a4'
+    });
+
+    const checks =
+    document.querySelectorAll('.checkCertificado');
+
+    let certificadosSeleccionados = [];
+
+    checks.forEach((check)=>{
+
+        if(check.checked){
+
+            certificadosSeleccionados.push(
+
+                check.nextElementSibling
+            );
+        }
+    });
+
+    if(certificadosSeleccionados.length == 0){
+
+        alert('Seleccione al menos un certificado');
+
+        return;
+    }
+
+    const posiciones = [
+
+        {x:5, y:5},
+        {x:145, y:5},
+
+        {x:5, y:104},
+        {x:145, y:104}
+    ];
+
+    let contador = 0;
+
+    for(let i = 0;
+        i < certificadosSeleccionados.length;
+        i++){
+
+        const canvas =
+        await html2canvas(
+
+            certificadosSeleccionados[i],
+
+            {
+                scale:2,
+
+                useCORS:true,
+
+                backgroundColor:"#ffffff"
+            }
+        );
+
+        const imgData =
+        canvas.toDataURL(
+        'image/jpeg',
+        1.0);
+
+        const pos =
+        posiciones[contador];
+
+        pdf.addImage(
+
+            imgData,
+
+            'JPEG',
+
+            pos.x,
+            pos.y,
+
+            140,
+            99
+        );
+
+        contador++;
+
+        if(contador == 4 &&
+           i != certificadosSeleccionados.length - 1){
+
+            pdf.addPage();
+
+            contador = 0;
+        }
+    }
+
+    pdf.save(
+    'certificados_seleccionados.pdf'
+    );
+}
 </script>
 
 </body>
